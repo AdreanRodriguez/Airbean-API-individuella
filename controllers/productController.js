@@ -5,7 +5,7 @@ export default class ProductController {
 
     // HÄMTA ALLA PRODUKTER
     // URL =  api/products
-    getAllProducts = async (req, res, next) => {
+    getAllProducts = async (req, res) => {
         res.status(200).json({
             success: true,
             message: 'Products found.',
@@ -97,17 +97,16 @@ export default class ProductController {
             productRemovedAt: productRemovedAt,
             product: req.product
         });
-        
+
     }
 
     // MODIFIERA ENSKILD PRODUKT PÅ ID
     // URL = api/products/:productId
     modifyProduct = async (req, res) => {
-        // Skriver in vilka nycklar som ska vara giltiga i body
-
         const { productId } = req.params;
         const modifiedBodyData = req.body;
         const validKeys = ['title', 'desc', 'price', 'estimatedTimeInMinutes'];
+
         const invalidKeys = Object.keys(modifiedBodyData).filter(theValidKeys => !validKeys.includes(theValidKeys));
 
         if (invalidKeys.length > 0) {
@@ -129,9 +128,6 @@ export default class ProductController {
             })
         }
 
-
-        console.log(`HÄR ÄR BODYDATA`, modifiedBodyData);
-
         const updatedProduct = await productDb.updateOne(
             { _id: productId },
             { $set: modifiedBodyData },
@@ -148,6 +144,3 @@ export default class ProductController {
         })
     }
 }
-
-
-// Lägg även med en createdAt med datum och tid när den skapades const productCreatedAt = new Date(product.productCreatedAt);
