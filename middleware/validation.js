@@ -183,26 +183,8 @@ const validate = {
                 validationError.status = 400;
                 return next(validationError);
             }
-
             next()
         },
-
-        remove: async (req, res) => {
-            
-        },
-
-        // modify: async (req, res, modifiedBodyData) => {
-        //     const validKeys = ['id', 'title', 'desc', 'price', 'estimatedTimeInMinutes']
-
-        //     const invalidKeys = Object.keys(modifiedBodyData).filter(key => !validKeys.includes(key))
-        //     if (invalidKeys.length > 0) {
-        //         return res.status(400).json({
-        //             success: false,
-        //             status: 400,
-        //             message: `Invalid keys found: ${invalidKeys.join(', ')}`
-        //         });
-
-        // }
     },
 
     // modefiedAt läggs till här

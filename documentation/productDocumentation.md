@@ -39,14 +39,26 @@
 # POST - api/products/
 *Add new product to product.db*<br>
 >**You are only authorized to add a product if you are an admin. If so, in Insomnia don't forget to add Authorization in Headers with your Token**
-## Returns
+
+* Write like this inside `req.body`
+```
+{
+    "title": "Add new product title here",
+	"desc": "Add description here",
+	"price": 123,
+	"estimatedTimeInMinutes": 0.2
+}
+```
+<br>
+
+# Returns
 * Successful Response
 ```
     success: true,
     status: 200,
     message: 'Product added',
     productCreatedAt: productCreatedAt,
-    product: formattedProduct
+    product: createdProduct
 ```
 # Errors
 * If you are **not** admin, you are not authorized to add a product.
@@ -80,18 +92,3 @@ Price = `Here you enter the price the product should have. It must be a number, 
 <br><br>
 estimatedTimeInMinutes = `The time it takes to make the product. It must be a positive number because it is required.`
 <br><br>
-*Example below:*
-```
-    "title": "Add new product title here",
-	"desc": "Add description here",
-	"price": 123,
-	"estimatedTimeInMinutes": 0.2
-```
-
-<br>
-
-```
-    error.message = error.details[0].message;
-    error.status = 400;
-    return next(error);
-```

@@ -31,7 +31,6 @@ router.put('/:productId',
     authMiddleware.checkUserStrict,
     validateMiddleware.users.isAdmin,
     validateMiddleware.products.one,
-    controller.modifyProduct
-)
+    controller.modifyProduct)
 
 export default router;
