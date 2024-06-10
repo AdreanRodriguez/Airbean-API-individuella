@@ -1,4 +1,6 @@
 {"id":6,"title":"Cortado","desc":"Bryggd på månadens bönor.","price":39,"_id":"6345zTW8NQ9O5DGz","estimatedTimeInMinutes":0.4}
+{"id":8,"title":"Den modifierade produkten","desc":"Skriv något kortfattat om produkten","price":123,"estimatedTimeInMinutes":0.8,"_id":"BS1UwQYISmd9nw5o"}
+{"id":7,"title":"Favoritkaffet 1","desc":"De é la gött, änna!","price":22,"estimatedTimeInMinutes":0.2,"_id":"DSWT68y3OQTKWqyB"}
 {"id":2,"title":"Caffè Doppio","desc":"Bryggd på månadens bönor.","price":49,"_id":"Kf3zNE5oNKHU9KAj","estimatedTimeInMinutes":0.2}
 {"id":5,"title":"Kaffe Latte","desc":"Bryggd på månadens bönor.","price":54,"_id":"UQWXNsKroS9bKZL0","estimatedTimeInMinutes":0.5}
 {"id":4,"title":"Latte Macchiato","desc":"Bryggd på månadens bönor.","price":49,"_id":"XJDnoqZemVtSSIhm","estimatedTimeInMinutes":1.5}

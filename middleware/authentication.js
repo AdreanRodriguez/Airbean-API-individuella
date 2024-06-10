@@ -8,7 +8,7 @@ const authentication = {
     checkUserStrict: (req, res, next) => {
         jwt.verify(req.headers.authorization, SECRET_KEY, (err, decoded) => {
             if(err){
-                error.message = 'Unauthorized access: ';
+                error.message = 'Unauthorized access: You need a Token';
                 error.status = 400;
                 return next(error);
             }
