@@ -1,4 +1,5 @@
-# GET - /api/products
+# GET
+## URL - /api/products
 *Fetches all products.*
 ## Returns
 * Successful Response
@@ -17,7 +18,8 @@
 ```
 <hr><br><br>
 
-# GET - /api/products/:productId
+# GET
+## URL - /api/products/:productId
 *Fetches a specific product by its ID.*
 ## Returns
 * Successful Response
@@ -27,7 +29,7 @@
     status: 200,
     product: {...}
 ```
-# Errors
+## Errors
 * Product Not Found
 ```
     success: false,
@@ -36,11 +38,12 @@
 ```
 <hr><br><br>
 
-# POST - api/products/
+# POST
+## URL - api/products/
 *Add new product to product.db*<br>
->**You are only authorized to add a product if you are an admin. If so, in Insomnia don't forget to add Authorization in Headers with your Token**
+>**You are only authorized to add a product if you are admin. <br> If so, in Insomnia don't forget to add Authorization in Headers with your Token**
 
-* Write like this inside `req.body`
+## Write like this inside `req.body` to add
 ```
 {
     "title": "Add new product title here",
@@ -51,7 +54,7 @@
 ```
 <br>
 
-# Returns
+## Returns
 * Successful Response
 ```
     success: true,
@@ -60,7 +63,7 @@
     productCreatedAt: productCreatedAt,
     product: createdProduct
 ```
-# Errors
+## Errors
 * If you are **not** admin, you are not authorized to add a product.
 ```
 	"success": false,
@@ -92,3 +95,82 @@ Price = `Here you enter the price the product should have. It must be a number, 
 <br><br>
 estimatedTimeInMinutes = `The time it takes to make the product. It must be a positive number because it is required.`
 <br><br>
+
+# DELETE
+## URL - api/products/:productId
+*Remove product from product.db*
+<br>
+
+>**You are only authorized to remove a product if you are admin. <br> If so, in Insomnia don't forget to add Authorization in Headers with your Token**
+
+<br>
+
+## Returns
+* Successful Response
+```
+	"success": true,
+	"status": 200,
+	"message": "Product removed",
+	"productRemovedAt": "date time",
+	"product": {...}
+```
+## Errors
+* If you are not admin, provided an incorrect ***_id*** in your DELETE request, or the product does not exist.
+```
+	"success": false,
+	"message": "Product not found.",
+	"status": 404
+```
+<br>
+
+# PUT
+## URL - api/products/:productId
+
+<br>
+
+## Write like this inside `req.body` to modify
+```
+{
+    "title": "Modify product title here",
+	"desc": "Modify description here",
+	"price": 123,
+	"estimatedTimeInMinutes": 0.2
+}
+```
+
+## Success
+
+```
+{
+	"success": true,
+	"status": 200,
+	"message": "The product is now modified",
+	"modifiedAt": "2024-06-10 13:28:08",
+	"modifyProduct": {...}
+}
+```
+<br>
+
+### If you are not admin, provided an incorrect ***_id*** in your PUT request, or the product does not exist.
+
+## Errors
+```
+	"success": false,
+	"message": "Product not found.",
+	"status": 404
+```
+<br>
+
+* If you attempt to use keys that are not allowed
+
+```
+	"success": false,
+	"status": 400,
+	"message": "Invalid keys found: ...",
+	"useOnly": [
+		"title",
+		"desc",
+		"price",
+		"estimatedTimeInMinutes"
+	]
+```

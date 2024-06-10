@@ -97,13 +97,14 @@ export default class ProductController {
             productRemovedAt: productRemovedAt,
             product: req.product
         });
-        // GLÖM INTE att uppdatera så att id blir i stigande ordning.
+        
     }
 
-
+    // MODIFIERA ENSKILD PRODUKT PÅ ID
+    // URL = api/products/:productId
     modifyProduct = async (req, res) => {
         // Skriver in vilka nycklar som ska vara giltiga i body
-        
+
         const { productId } = req.params;
         const modifiedBodyData = req.body;
         const validKeys = ['title', 'desc', 'price', 'estimatedTimeInMinutes'];
