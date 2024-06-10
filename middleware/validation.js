@@ -174,9 +174,8 @@ const validate = {
             next();
 
         },
-
+        // Validering för att skriva in rätt saker när man lägger till en produkt
         add: async (req, res, next) => {
-
             const { error } = productSchema.validate(req.body);
 
             if (error) {
@@ -186,11 +185,11 @@ const validate = {
             }
             next()
         },
-
+        // Validering för att skriva in rätt saker när man gör en kampanj
         campaign: async (req, res, next) => {
             const { error } = campaignSchema.validate(req.body)
 
-            if(error) {
+            if (error) {
                 validationError.message = error.details[0].message
                 validationError.status = 400
                 return next(validationError)

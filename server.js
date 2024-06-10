@@ -22,7 +22,7 @@ app.use('/api/auth', authRoutes); // LOGGA IN HÄR!
 app.use('/api/about', aboutRoutes) // HÄMTA ABOUT TEXTEN
 app.use('/api/orders', orderRoutes); // HÄMTA ALLA ORDRAR
 app.use('/api/products', productRoutes); // HÄMTA ALLA PRODUKTER
-app.use('', campaignRoutes); // HÄMTA KAMPANJERBJUDANDE
+app.use('/api/campaign', campaignRoutes); // HÄMTA KAMPANJERBJUDANDE
 app.use('/api/navigation', navigationRoutes); // HÄMTA ALLA VAL FÖR NAVIGERING
 
 app.listen(PORT, () => {

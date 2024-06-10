@@ -7,10 +7,15 @@ const campController = new campaignController();
 
 const router = Router();
 
+router.get('/',
+    authMiddleware.checkUser,
+    campController.getCampaign
+)
+
 router.post('/', 
     authMiddleware.checkUserStrict,
     validateMiddleware.users.isAdmin,
     validateMiddleware.products.campaign,
-    campController.campaign);
+    campController.addNewCampaign);
 
 export default router;
