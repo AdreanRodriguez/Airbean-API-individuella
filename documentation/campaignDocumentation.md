@@ -30,7 +30,12 @@
 # POST
 ## URL - api/campaign/
 *Add new product to campaign.db*<br>
-### campaignController
+
+### | Middleware
+* [checkUserStrict](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/authentication.js#L8)
+* [users.isAdmin](https://vscode.dev/github/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L274)
+* [campaign](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L192)
+### | campaignController
 * [addNewCampaign](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/campaignController.js#L25)
 ## Write like this inside `req.body` to add
 ```
@@ -98,8 +103,8 @@ Price = `Here you enter the price the campaign should have. It must be a number,
 *Remove all campaigns from campaign.db*
 <br>
 
-### Middleware
-* [campaign](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L192)
+### campaignController
+* [removeAllCampaign](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/campaignController.js#L38)
 
 ## Returns
 * Successful Response

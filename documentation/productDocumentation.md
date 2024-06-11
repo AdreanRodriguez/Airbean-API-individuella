@@ -1,6 +1,11 @@
 # GET
 ## URL - /api/products
 *Fetches all products.*
+### | Middleware
+* [products.many](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L166)
+
+### | productController
+* [getAllProducts](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/productController.js#L8)
 ## Returns
 * Successful Response
 ```
@@ -21,6 +26,11 @@
 # GET
 ## URL - /api/products/:productId
 *Fetches a specific product by its _id.*
+### | Middleware
+* [products.one](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L144)
+
+### | productController
+* [getProduct](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/productController.js#L19)
 ## Returns
 * Successful Response
 ```
@@ -42,6 +52,13 @@
 ## URL - api/products/
 *Add new product to product.db*<br>
 >**You are only authorized to add a product if you are admin. <br> If so, in Insomnia don't forget to add Authorization in Headers with your Token**
+### | Middleware
+* [checkUserStrict](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/authentication.js#L8)
+* [users.isAdmin](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L274)
+* [products.add](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L178)
+
+### | productController
+* [addNewProduct](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/productController.js#L30)
 
 ## Write like this inside `req.body` to add
 ```
@@ -103,6 +120,14 @@ estimatedTimeInMinutes = `The time it takes to make the product. It must be a po
 
 >**You are only authorized to remove a product if you are admin. <br> If so, in Insomnia don't forget to add Authorization in Headers with your Token**
 
+### | Middleware
+* [checkUserStrict](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/authentication.js#L8)
+* [users.isAdmin](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L274)
+* [products.one](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L144)
+
+### | productController
+* [removeProduct](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/productController.js#L78)
+
 <br>
 
 ## Returns
@@ -125,6 +150,14 @@ estimatedTimeInMinutes = `The time it takes to make the product. It must be a po
 
 # PUT
 ## URL - api/products/:productId
+
+### | Middleware
+* [checkUserStrict](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/authentication.js#L8)
+* [users.isAdmin](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L274)
+* [products.one](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L144)
+
+### | productController
+* [modifyProduct](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/productController.js#L105)
 
 <br>
 
