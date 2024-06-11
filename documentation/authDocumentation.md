@@ -1,6 +1,11 @@
 # POST - /api/auth/register
 
 Skapar en ny användare baserat på information från `req.body`
+### | middleware
+* [register](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L224)
+### | authController
+* [registerUser](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/authController.js#L7)
+
 
 ## Req.body
 ```
@@ -50,6 +55,11 @@ Loggar in användare till hemsidan
 
 **Returnerar en `token` som man behöver lägga till i headers för att säkerställa att man är inloggad gällande andra anrop.**
 
+### | middleware
+* [login](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L250)
+### | authController
+* [loginUser](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/authController.js#L39)
+
 ## Req.body
 ```
 	username: string,
@@ -86,6 +96,11 @@ Loggar in användare till hemsidan
 
 Returnerar alla användare.
 *(Av säkerhetsskäl så skickas inte lösenorden med)*
+### | middleware
+* [checkUser](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/authentication.js#L22)
+* [isAdmin](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L274)
+### | authController
+* [getAllUsers](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/authController.js#L60)
 
 ## Returns
 
@@ -111,7 +126,12 @@ Returnerar alla användare.
 
 Returnerar specifik användare.
 *(Av säkerhetsskäl så skickas inte lösenorden med)*
-
+### | middleware
+* [checkUserStrict](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/authentication.js#L8)
+* [isAdmin](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L274)
+* [validUserIdParam](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L284)
+### | authController
+* [getUser](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/authController.js#L50)
 
 ## Returns
 

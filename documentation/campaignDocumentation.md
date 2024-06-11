@@ -1,6 +1,8 @@
 # GET
 ## URL - /api/campaign/
 *Fetches all campaigns.*
+### campaignController
+* [getCampaign](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/campaignController.js#L7)
 ## Returns
 * Successful Response
 ```
@@ -28,7 +30,8 @@
 # POST
 ## URL - api/campaign/
 *Add new product to campaign.db*<br>
-
+### campaignController
+* [addNewCampaign](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/campaignController.js#L25)
 ## Write like this inside `req.body` to add
 ```
 {
@@ -37,6 +40,7 @@
 	"price": 123,
 }
 ```
+
 <br>
 
 ## Returns
@@ -93,6 +97,9 @@ Price = `Here you enter the price the campaign should have. It must be a number,
 ## URL - api/campaign/
 *Remove all campaigns from campaign.db*
 <br>
+
+### Middleware
+* [campaign](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L192)
 
 ## Returns
 * Successful Response

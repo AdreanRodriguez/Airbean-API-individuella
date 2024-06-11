@@ -3,6 +3,11 @@
 
 ### Specifik information om företaget/kaffet
 
+### | middleware
+* [about](https://vscode.dev/github/AdreanRodriguez/Airbean-API-individuella/blob/main/middleware/validation.js#L338)
+### | aboutController
+* [aboutInfo](https://github.com/AdreanRodriguez/Airbean-API-individuella/blob/main/controllers/aboutController.js#L8)
+
 ## Returns
 ```
     success: true,
