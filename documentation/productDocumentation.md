@@ -20,7 +20,7 @@
 
 # GET
 ## URL - /api/products/:productId
-*Fetches a specific product by its ID.*
+*Fetches a specific product by its _id.*
 ## Returns
 * Successful Response
 ```

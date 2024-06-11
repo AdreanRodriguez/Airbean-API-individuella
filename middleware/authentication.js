@@ -23,8 +23,8 @@ const authentication = {
         jwt.verify(req.headers.authorization, SECRET_KEY, (err, decoded) => {
             if(decoded){
                 let processedData = JSON.stringify(decoded, (key, value) => {return key !== 'password' ? value:undefined})
-                req.user = JSON.parse(processedData);    
-            } 
+                req.user = JSON.parse(processedData);
+            }
             next();
         });
     },

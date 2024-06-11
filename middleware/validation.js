@@ -185,17 +185,39 @@ const validate = {
             }
             next()
         },
-        // Validering för att skriva in rätt saker när man gör en kampanj
-        campaign: async (req, res, next) => {
-            const { error } = campaignSchema.validate(req.body)
 
-            if (error) {
-                validationError.message = error.details[0].message
-                validationError.status = 400
-                return next(validationError)
-            }
-            next()
+    },
+
+    // Validering för att skriva in rätt saker när man gör en kampanj
+    campaign: async (req, res, next) => {
+        const { error } = campaignSchema.validate(req.body)
+
+        if (error) {
+            validationError.message = error.details[0].message
+            validationError.status = 400
+            return next(validationError)
         }
+
+        // Kolla giltiga produkter.
+        const prod1 = await productDb.findOne({ _id: req.body.prod1 })
+        const prod2 = await productDb.findOne({ _id: req.body.prod2 })
+
+        if (!prod1) {
+            validationError.message = `Product 1, not found`
+            validationError.status = 404
+            return next(validationError)
+        }
+
+        if (!prod2) {
+            validationError.message = `Product 2, not found`
+            validationError.status = 404
+            return next(validationError)
+        }
+        // Sätter det man skrivit i body till prod1 & prod2
+        req.body.prod1 = prod1;
+        req.body.prod2 = prod2;
+
+        next()
     },
 
     users: {

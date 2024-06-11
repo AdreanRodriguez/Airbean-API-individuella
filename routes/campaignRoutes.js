@@ -3,19 +3,17 @@ import authMiddleware from '../middleware/authentication.js';
 import validateMiddleware from '../middleware/validation.js';
 import campaignController from '../controllers/campaignController.js';
 
+const router = Router();
 const campController = new campaignController();
 
-const router = Router();
-
-router.get('/',
-    authMiddleware.checkUser,
-    campController.getCampaign
-)
+router.get('/', campController.getCampaign);
 
 router.post('/', 
     authMiddleware.checkUserStrict,
     validateMiddleware.users.isAdmin,
-    validateMiddleware.products.campaign,
+    validateMiddleware.campaign,
     campController.addNewCampaign);
+
+router.delete('/', campController.removeAllCampaign);
 
 export default router;
